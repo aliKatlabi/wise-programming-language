@@ -1,0 +1,14 @@
+
+<html
+
+title1 <-'My first Web Page'
+title2 <-'Hello World Wide Web!'
+<:head:
+title:
+	->title1
+.
+
+<:body:
+h1:
+	->title2
+.

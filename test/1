@@ -1,0 +1,25 @@
+
+
+<html
+
+word1 <-'Java Applet Example'
+word2 <-'Below is the sample applet'
+
+<:head:
+title:
+	->word1
+.
+
+<:body:
+title:
+	->word2
+br:
+	applet:
+
+.
+
+<:div:
+div:
+	p:
+		->word1
+.

@@ -1,0 +1,13 @@
+
+<html
+
+name<-'Edimarf'
+age<-'22'
+
+<:div:
+div:
+	p:
+		->name
+	p:
+		->age
+.

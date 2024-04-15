@@ -1,0 +1,12 @@
+
+<html
+
+titleH1 <-'Write your First Heading'
+titleP <-'Write your First Paragraph'
+
+<:body:
+h1:
+	->titleH1
+p:
+	->titleP
+.

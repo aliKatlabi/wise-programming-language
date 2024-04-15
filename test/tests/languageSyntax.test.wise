@@ -1,0 +1,30 @@
+
+<html
+
+texting<-'Welcome to our System'
+info<-'User info'
+name<-'John Smith'
+phone<-'006834942'
+email<-'j@example.com'
+
+
+<:head:
+h1:
+	->texting
+.
+
+<:body:
+h1:
+	->info
+p:
+	->name
+p:
+	->phone
+p:
+	->email
+
+
+.
+
+
+

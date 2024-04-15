@@ -1,0 +1,31 @@
+
+
+current_dir := ${CURDIR}
+
+COMPILERNAME=wise_h
+OUTNAME=wise
+SCANNERTEST=scantest
+
+BIN=$(current_dir)/bin
+SRC=$(current_dir)/src
+
+
+all:
+	@echo ... cleaning || (echo "mycommand failed $$?"; exit 1)
+	@rm -rf $(SRC)/$(COMPILERNAME) $(SRC)/$(SCANNERTEST) $(SRC)/lex.yy.cc $(SRC)/Parserbase.h $(SRC)/parse.cc || (echo "mycommand failed $$?"; exit 1)
+	@echo ... generating scanner || (echo "mycommand failed $$?"; exit 1)
+	@flex -o$(SRC)/lex.yy.cc $(SRC)/$(COMPILERNAME).l  || (echo "mycommand failed $$?"; exit 1)
+	@echo ... generating parser  || (echo "mycommand failed $$?"; exit 1)
+	@bisonc++  --verbose -f $(SRC)/Parser  $(SRC)/$(COMPILERNAME).y  || (echo "mycommand failed $$?"; exit 1)
+	@mv parse.cc $(SRC)/ || (echo "mycommand failed $$?"; exit 1)
+	@echo ... linking || (echo "mycommand failed $$?"; exit 1)
+	@g++ -std=c++11 -o $(SRC)/$(OUTNAME) $(SRC)/$(COMPILERNAME).cc $(SRC)/parse.cc $(SRC)/lex.yy.cc || (echo "mycommand failed $$?"; exit 1)
+	@exit 0
+
+
+
+
+
+
+
+

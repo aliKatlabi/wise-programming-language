@@ -1,0 +1,16 @@
+
+<html
+
+say<-'My first Script after i finally clone into server'
+
+<:head:
+title:
+	->say
+.
+
+<:div:
+p:
+.
+
+
+.

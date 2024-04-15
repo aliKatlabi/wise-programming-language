@@ -1,0 +1,16 @@
+
+<html
+
+say<-'My First VBscript code'
+
+<:head:
+title:
+	->say
+.
+
+<:div:
+p:
+.
+
+
+.

@@ -1,0 +1,36 @@
+
+<html
+
+
+text<-'aasdasdasdasdasdasdasdsd'
+
+<:div:' class=a'
+div:' class="A" width="10px"'
+	'some 
+		random 
+				text
+						on multiple lines'
+	span:
+		->text
+	div:
+		a:
+	p:
+.
+div:
+	''
+.
+
+<footer
+
+div:
+	div:
+.
+
+div:' class="s"'
+	span:' class="d"'
+	a:' class="b"'
+		div:
+.
+
+p:
+.

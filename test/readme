@@ -1,0 +1,11 @@
+make all needed tests named {name}.test.wise
+then run 
+
+$ sh testargs.sh *.test.wise
+
+
+OR 
+
+run a specifice file 'name.test.wise'
+
+$ sh testargs.sh name.test.wise

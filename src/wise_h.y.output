@@ -1,0 +1,1687 @@
+[[/afs/elte.hu/user/a/alikatlabi/web/project_wise/wise-h/src/wise_h.y (info)] Line 1542: 
+Production Rules
+(rule precedences determined from %prec or 1st terminal between parentheses):
+1: document ->  statements
+2: statements ->  statement
+3: statements ->  statement statements
+4: statements (T_GLOBCONT) ->  statements T_GLOBCONT tag T_NLINE statements
+5: statement (T_NLINE) ->  block T_NLINE
+6: statement (T_NLINE) ->  assignment T_NLINE
+7: statement ->  block_container
+8: statement (T_NLINE) ->  T_NLINE
+9: block_container (T_BLKCONT) ->  T_BLKCONT tag attributs T_NLINE block T_NLINE
+10: assignment (T_VARIABLE) ->  T_VARIABLE T_ASSIGN T_STR
+11: block (T_DOT) ->  T_DOT
+12: block (T_NLINE) ->  indents tag attributs T_NLINE textlines block
+13: block (T_NLINE) ->  indents tag attributs T_NLINE block
+14: block (T_NLINE) ->  indents tag attributs T_NLINE textlines
+15: textlines (T_STR) ->  indents T_STR T_NLINE
+16: textlines (T_EXTRACT) ->  indents T_EXTRACT T_VARIABLE T_NLINE
+17: indents ->  <empty>
+18: indents (T_INDENT) ->  T_INDENT indents
+19: attributs (T_COLON) ->  T_COLON
+20: attributs (T_COLON) ->  T_COLON T_STR
+21: attributs (T_COLON) ->  T_COLON T_EXTRACT T_VARIABLE
+22: tag (T_A) ->  T_A
+23: tag (T_DIV) ->  T_DIV
+24: tag (T_SPAN) ->  T_SPAN
+25: tag (T_P) ->  T_P
+26: tag (T_HTML) ->  T_HTML
+27: tag (T_HEAD) ->  T_HEAD
+28: tag (T_TITLE) ->  T_TITLE
+29: tag (T_BODY) ->  T_BODY
+30: tag (T_H1) ->  T_H1
+31: tag (T_H2) ->  T_H2
+32: tag (T_H3) ->  T_H3
+33: tag (T_H4) ->  T_H4
+34: tag (T_H5) ->  T_H5
+35: tag (T_H6) ->  T_H6
+36: tag (T_BR) ->  T_BR
+37: tag (T_HR) ->  T_HR
+38: tag (T_ACRONYM) ->  T_ACRONYM
+39: tag (T_ABBR) ->  T_ABBR
+40: tag (T_ADDRESS) ->  T_ADDRESS
+41: tag (T_B) ->  T_B
+42: tag (T_BDI) ->  T_BDI
+43: tag (T_BDO) ->  T_BDO
+44: tag (T_BIG) ->  T_BIG
+45: tag (T_BLOCKQUOTE) ->  T_BLOCKQUOTE
+46: tag (T_CENTER) ->  T_CENTER
+47: tag (T_CITE) ->  T_CITE
+48: tag (T_CODE) ->  T_CODE
+49: tag (T_DEL) ->  T_DEL
+50: tag (T_DFN) ->  T_DFN
+51: tag (T_EM) ->  T_EM
+52: tag (T_FONT) ->  T_FONT
+53: tag (T_I) ->  T_I
+54: tag (T_INS) ->  T_INS
+55: tag (T_KBD) ->  T_KBD
+56: tag (T_MARK) ->  T_MARK
+57: tag (T_METER) ->  T_METER
+58: tag (T_PRE) ->  T_PRE
+59: tag (T_PROGRESS) ->  T_PROGRESS
+60: tag (T_Q) ->  T_Q
+61: tag (T_RP) ->  T_RP
+62: tag (T_RT) ->  T_RT
+63: tag (T_RUBY) ->  T_RUBY
+64: tag (T_S) ->  T_S
+65: tag (T_SAMP) ->  T_SAMP
+66: tag (T_SMALL) ->  T_SMALL
+67: tag (T_STRIKE) ->  T_STRIKE
+68: tag (T_STRONG) ->  T_STRONG
+69: tag (T_SUB) ->  T_SUB
+70: tag (T_TEMPLATE) ->  T_TEMPLATE
+71: tag (T_TIME) ->  T_TIME
+72: tag (T_TT) ->  T_TT
+73: tag (T_U) ->  T_U
+74: tag (T_WBR) ->  T_WBR
+75: tag (T_OPTION) ->  T_OPTION
+76: tag (T_FORM) ->  T_FORM
+77: tag (T_INPUT) ->  T_INPUT
+78: tag (T_TEXTAREA) ->  T_TEXTAREA
+79: tag (T_BUTTON) ->  T_BUTTON
+80: tag (T_SELECT) ->  T_SELECT
+81: tag (T_OPTGROUP) ->  T_OPTGROUP
+82: tag (T_OPTON) ->  T_OPTON
+83: tag (T_LABEL) ->  T_LABEL
+84: tag (T_FIELDSET) ->  T_FIELDSET
+85: tag (T_LEGEND) ->  T_LEGEND
+86: tag (T_DATALIST) ->  T_DATALIST
+87: tag (T_OUTPUT) ->  T_OUTPUT
+88: tag (T_FRAME) ->  T_FRAME
+89: tag (T_FRAMESET) ->  T_FRAMESET
+90: tag (T_NOFRAMES) ->  T_NOFRAMES
+91: tag (T_IFRAME) ->  T_IFRAME
+92: tag (T_IMG) ->  T_IMG
+93: tag (T_MAP) ->  T_MAP
+94: tag (T_AREA) ->  T_AREA
+95: tag (T_CANVAS) ->  T_CANVAS
+96: tag (T_FIGCAPTION) ->  T_FIGCAPTION
+97: tag (T_FIGURE) ->  T_FIGURE
+98: tag (T_PICTURE) ->  T_PICTURE
+99: tag (T_SVG) ->  T_SVG
+100: tag (T_AUDIO) ->  T_AUDIO
+101: tag (T_SOURCE) ->  T_SOURCE
+102: tag (T_TRACK) ->  T_TRACK
+103: tag (T_VAREO) ->  T_VAREO
+104: tag (T_LINK) ->  T_LINK
+105: tag (T_NAV) ->  T_NAV
+106: tag (T_UL) ->  T_UL
+107: tag (T_OL) ->  T_OL
+108: tag (T_LI) ->  T_LI
+109: tag (T_DIR) ->  T_DIR
+110: tag (T_DL) ->  T_DL
+111: tag (T_DT) ->  T_DT
+112: tag (T_DD) ->  T_DD
+113: tag (T_CAPTION) ->  T_CAPTION
+114: tag (T_TH) ->  T_TH
+115: tag (T_TR) ->  T_TR
+116: tag (T_TD) ->  T_TD
+117: tag (T_THEAD) ->  T_THEAD
+118: tag (T_TBODY) ->  T_TBODY
+119: tag (T_TFOOT) ->  T_TFOOT
+120: tag (T_COL) ->  T_COL
+121: tag (T_COLGROUP) ->  T_COLGROUP
+122: tag (T_STYLE) ->  T_STYLE
+123: tag (T_DIV) ->  T_DIV
+124: tag (T_SPAN) ->  T_SPAN
+125: tag (T_HEADER) ->  T_HEADER
+126: tag (T_FOOTER) ->  T_FOOTER
+127: tag (T_MAIN) ->  T_MAIN
+128: tag (T_SECTION) ->  T_SECTION
+129: tag (T_ARTICLE) ->  T_ARTICLE
+130: tag (T_ASIDE) ->  T_ASIDE
+131: tag (T_DETAILS) ->  T_DETAILS
+132: tag (T_DIALOG) ->  T_DIALOG
+133: tag (T_SUMMARY) ->  T_SUMMARY
+134: tag (T_DATA) ->  T_DATA
+135: tag (T_META) ->  T_META
+136: tag (T_BASE) ->  T_BASE
+137: tag (T_BASEFONT) ->  T_BASEFONT
+138: tag (T_SCRIPT) ->  T_SCRIPT
+139: tag (T_NOSCRIPT) ->  T_NOSCRIPT
+140: tag (T_APPLET) ->  T_APPLET
+141: tag (T_EMBED) ->  T_EMBED
+142: tag (T_OBJECT) ->  T_OBJECT
+143: tag (T_PARAM) ->  T_PARAM
+144: document_$ ->  document
+
+[[/afs/elte.hu/user/a/alikatlabi/web/project_wise/wise-h/src/wise_h.y (info)] 
+Symbolic Terminal tokens:
+       error
+       EOF
+   257: T_HTML
+   258: T_HEAD
+   259: T_TITLE
+   260: T_BODY
+   261: T_H1
+   262: T_H2
+   263: T_H3
+   264: T_H4
+   265: T_H5
+   266: T_H6
+   267: T_P
+   268: T_BR
+   269: T_HR
+   270: T_ACRONYM
+   271: T_ABBR
+   272: T_ADDRESS
+   273: T_B
+   274: T_BDI
+   275: T_BDO
+   276: T_BIG
+   277: T_BLOCKQUOTE
+   278: T_CENTER
+   279: T_CITE
+   280: T_CODE
+   281: T_DEL
+   282: T_DFN
+   283: T_EM
+   284: T_FONT
+   285: T_I
+   286: T_INS
+   287: T_KBD
+   288: T_MARK
+   289: T_METER
+   290: T_PRE
+   291: T_PROGRESS
+   292: T_Q
+   293: T_RP
+   294: T_RT
+   295: T_RUBY
+   296: T_S
+   297: T_SAMP
+   298: T_SMALL
+   299: T_STRIKE
+   300: T_STRONG
+   301: T_SUB
+   302: T_SUP
+   303: T_TEMPLATE
+   304: T_TIME
+   305: T_TT
+   306: T_U
+   307: T_WBR
+   308: T_VIDEO
+   309: T_OPTION
+   310: T_FORM
+   311: T_INPUT
+   312: T_TEXTAREA
+   313: T_BUTTON
+   314: T_SELECT
+   315: T_OPTGROUP
+   316: T_OPTON
+   317: T_LABEL
+   318: T_FIELDSET
+   319: T_LEGEND
+   320: T_DATALIST
+   321: T_OUTPUT
+   322: T_FRAME
+   323: T_FRAMESET
+   324: T_NOFRAMES
+   325: T_IFRAME
+   326: T_IMG
+   327: T_MAP
+   328: T_AREA
+   329: T_CANVAS
+   330: T_FIGCAPTION
+   331: T_FIGURE
+   332: T_PICTURE
+   333: T_SVG
+   334: T_AUDIO
+   335: T_SOURCE
+   336: T_TRACK
+   337: T_VAREO
+   338: T_A
+   339: T_LINK
+   340: T_NAV
+   341: T_UL
+   342: T_OL
+   343: T_LI
+   344: T_DIR
+   345: T_DL
+   346: T_DT
+   347: T_DD
+   348: T_CAPTION
+   349: T_TH
+   350: T_TR
+   351: T_TD
+   352: T_THEAD
+   353: T_TBODY
+   354: T_TFOOT
+   355: T_COL
+   356: T_COLGROUP
+   357: T_STYLE
+   358: T_DIV
+   359: T_SPAN
+   360: T_HEADER
+   361: T_FOOTER
+   362: T_MAIN
+   363: T_SECTION
+   364: T_ARTICLE
+   365: T_ASIDE
+   366: T_DETAILS
+   367: T_DIALOG
+   368: T_SUMMARY
+   369: T_DATA
+   370: T_META
+   371: T_BASE
+   372: T_BASEFONT
+   373: T_SCRIPT
+   374: T_NOSCRIPT
+   375: T_APPLET
+   376: T_EMBED
+   377: T_OBJECT
+   378: T_PARAM
+   379: T_VAR
+   380: T_STR
+   381: T_VARIABLE
+   382: T_NLINE
+   383: T_INDENT
+   384: T_COLON
+   385: T_CLOSE
+   386: T_OPEN
+   387: T_ASSIGN
+   388: T_EXTRACT
+   389: T_QM
+   390: T_SQM
+   391: T_LIST
+   392: T_GROUP
+   393: T_TABLE
+   394: T_GLOBCONT
+   395: T_BLKCONT
+   396: T_DOT
+   403: string
+
+[[/afs/elte.hu/user/a/alikatlabi/web/project_wise/wise-h/src/wise_h.y (info)] 
+Grammar States: 
+[[/afs/elte.hu/user/a/alikatlabi/web/project_wise/wise-h/src/wise_h.y (info)] State 0:
+144: document_$ ->  . document 
+  0:   On document to state 1
+  1:   On statements to state 2
+  2:   On statement to state 3
+  3:   On block to state 4
+  4:   On assignment to state 5
+  5:   On block_container to state 6
+  6:   On T_NLINE to state 7
+  7:   On T_DOT to state 8
+  8:   On indents to state 9
+  9:   On T_VARIABLE to state 10
+  10:   On T_BLKCONT to state 11
+  11:   On T_INDENT to state 12
+  Reduce by 17: indents ->  . 
+
+
+State 1:
+144: document_$ -> document  . 
+
+
+State 2:
+1: document -> statements  . 
+4: statements -> statements  . T_GLOBCONT tag T_NLINE statements 
+  0:   On T_GLOBCONT to state 13
+  Reduce by 1: document -> statements  . 
+
+
+State 3:
+2: statements -> statement  . 
+3: statements -> statement  . statements 
+  0:   On statements to state 14
+  1:   On statement to state 3
+  2:   On block to state 4
+  3:   On assignment to state 5
+  4:   On block_container to state 6
+  5:   On T_NLINE to state 7
+  6:   On T_DOT to state 8
+  7:   On indents to state 9
+  8:   On T_VARIABLE to state 10
+  9:   On T_BLKCONT to state 11
+  10:   On T_INDENT to state 12
+  Reduce by 2: statements -> statement  . 
+  Reduce by 17: indents ->  . 
+
+
+State 4:
+5: statement -> block  . T_NLINE 
+  0:   On T_NLINE to state 15
+
+
+State 5:
+6: statement -> assignment  . T_NLINE 
+  0:   On T_NLINE to state 16
+
+
+State 6:
+7: statement -> block_container  . 
+  Reduce by 7: statement -> block_container  . 
+
+
+State 7:
+8: statement -> T_NLINE  . 
+  Reduce by 8: statement -> T_NLINE  . 
+
+
+State 8:
+11: block -> T_DOT  . 
+  Reduce by 11: block -> T_DOT  . 
+
+
+State 9:
+12: block -> indents  . tag attributs T_NLINE textlines block 
+13: block -> indents  . tag attributs T_NLINE block 
+14: block -> indents  . tag attributs T_NLINE textlines 
+  0:   On tag to state 17
+  1:   On T_A to state 18
+  2:   On T_DIV to state 19
+  3:   On T_SPAN to state 20
+  4:   On T_P to state 21
+  5:   On T_HTML to state 22
+  6:   On T_HEAD to state 23
+  7:   On T_TITLE to state 24
+  8:   On T_BODY to state 25
+  9:   On T_H1 to state 26
+  10:   On T_H2 to state 27
+  11:   On T_H3 to state 28
+  12:   On T_H4 to state 29
+  13:   On T_H5 to state 30
+  14:   On T_H6 to state 31
+  15:   On T_BR to state 32
+  16:   On T_HR to state 33
+  17:   On T_ACRONYM to state 34
+  18:   On T_ABBR to state 35
+  19:   On T_ADDRESS to state 36
+  20:   On T_B to state 37
+  21:   On T_BDI to state 38
+  22:   On T_BDO to state 39
+  23:   On T_BIG to state 40
+  24:   On T_BLOCKQUOTE to state 41
+  25:   On T_CENTER to state 42
+  26:   On T_CITE to state 43
+  27:   On T_CODE to state 44
+  28:   On T_DEL to state 45
+  29:   On T_DFN to state 46
+  30:   On T_EM to state 47
+  31:   On T_FONT to state 48
+  32:   On T_I to state 49
+  33:   On T_INS to state 50
+  34:   On T_KBD to state 51
+  35:   On T_MARK to state 52
+  36:   On T_METER to state 53
+  37:   On T_PRE to state 54
+  38:   On T_PROGRESS to state 55
+  39:   On T_Q to state 56
+  40:   On T_RP to state 57
+  41:   On T_RT to state 58
+  42:   On T_RUBY to state 59
+  43:   On T_S to state 60
+  44:   On T_SAMP to state 61
+  45:   On T_SMALL to state 62
+  46:   On T_STRIKE to state 63
+  47:   On T_STRONG to state 64
+  48:   On T_SUB to state 65
+  49:   On T_TEMPLATE to state 66
+  50:   On T_TIME to state 67
+  51:   On T_TT to state 68
+  52:   On T_U to state 69
+  53:   On T_WBR to state 70
+  54:   On T_OPTION to state 71
+  55:   On T_FORM to state 72
+  56:   On T_INPUT to state 73
+  57:   On T_TEXTAREA to state 74
+  58:   On T_BUTTON to state 75
+  59:   On T_SELECT to state 76
+  60:   On T_OPTGROUP to state 77
+  61:   On T_OPTON to state 78
+  62:   On T_LABEL to state 79
+  63:   On T_FIELDSET to state 80
+  64:   On T_LEGEND to state 81
+  65:   On T_DATALIST to state 82
+  66:   On T_OUTPUT to state 83
+  67:   On T_FRAME to state 84
+  68:   On T_FRAMESET to state 85
+  69:   On T_NOFRAMES to state 86
+  70:   On T_IFRAME to state 87
+  71:   On T_IMG to state 88
+  72:   On T_MAP to state 89
+  73:   On T_AREA to state 90
+  74:   On T_CANVAS to state 91
+  75:   On T_FIGCAPTION to state 92
+  76:   On T_FIGURE to state 93
+  77:   On T_PICTURE to state 94
+  78:   On T_SVG to state 95
+  79:   On T_AUDIO to state 96
+  80:   On T_SOURCE to state 97
+  81:   On T_TRACK to state 98
+  82:   On T_VAREO to state 99
+  83:   On T_LINK to state 100
+  84:   On T_NAV to state 101
+  85:   On T_UL to state 102
+  86:   On T_OL to state 103
+  87:   On T_LI to state 104
+  88:   On T_DIR to state 105
+  89:   On T_DL to state 106
+  90:   On T_DT to state 107
+  91:   On T_DD to state 108
+  92:   On T_CAPTION to state 109
+  93:   On T_TH to state 110
+  94:   On T_TR to state 111
+  95:   On T_TD to state 112
+  96:   On T_THEAD to state 113
+  97:   On T_TBODY to state 114
+  98:   On T_TFOOT to state 115
+  99:   On T_COL to state 116
+  100:   On T_COLGROUP to state 117
+  101:   On T_STYLE to state 118
+  102:   On T_HEADER to state 119
+  103:   On T_FOOTER to state 120
+  104:   On T_MAIN to state 121
+  105:   On T_SECTION to state 122
+  106:   On T_ARTICLE to state 123
+  107:   On T_ASIDE to state 124
+  108:   On T_DETAILS to state 125
+  109:   On T_DIALOG to state 126
+  110:   On T_SUMMARY to state 127
+  111:   On T_DATA to state 128
+  112:   On T_META to state 129
+  113:   On T_BASE to state 130
+  114:   On T_BASEFONT to state 131
+  115:   On T_SCRIPT to state 132
+  116:   On T_NOSCRIPT to state 133
+  117:   On T_APPLET to state 134
+  118:   On T_EMBED to state 135
+  119:   On T_OBJECT to state 136
+  120:   On T_PARAM to state 137
+
+
+State 10:
+10: assignment -> T_VARIABLE  . T_ASSIGN T_STR 
+  0:   On T_ASSIGN to state 138
+
+
+State 11:
+9: block_container -> T_BLKCONT  . tag attributs T_NLINE block T_NLINE 
+  0:   On tag to state 139
+  1:   On T_A to state 18
+  2:   On T_DIV to state 19
+  3:   On T_SPAN to state 20
+  4:   On T_P to state 21
+  5:   On T_HTML to state 22
+  6:   On T_HEAD to state 23
+  7:   On T_TITLE to state 24
+  8:   On T_BODY to state 25
+  9:   On T_H1 to state 26
+  10:   On T_H2 to state 27
+  11:   On T_H3 to state 28
+  12:   On T_H4 to state 29
+  13:   On T_H5 to state 30
+  14:   On T_H6 to state 31
+  15:   On T_BR to state 32
+  16:   On T_HR to state 33
+  17:   On T_ACRONYM to state 34
+  18:   On T_ABBR to state 35
+  19:   On T_ADDRESS to state 36
+  20:   On T_B to state 37
+  21:   On T_BDI to state 38
+  22:   On T_BDO to state 39
+  23:   On T_BIG to state 40
+  24:   On T_BLOCKQUOTE to state 41
+  25:   On T_CENTER to state 42
+  26:   On T_CITE to state 43
+  27:   On T_CODE to state 44
+  28:   On T_DEL to state 45
+  29:   On T_DFN to state 46
+  30:   On T_EM to state 47
+  31:   On T_FONT to state 48
+  32:   On T_I to state 49
+  33:   On T_INS to state 50
+  34:   On T_KBD to state 51
+  35:   On T_MARK to state 52
+  36:   On T_METER to state 53
+  37:   On T_PRE to state 54
+  38:   On T_PROGRESS to state 55
+  39:   On T_Q to state 56
+  40:   On T_RP to state 57
+  41:   On T_RT to state 58
+  42:   On T_RUBY to state 59
+  43:   On T_S to state 60
+  44:   On T_SAMP to state 61
+  45:   On T_SMALL to state 62
+  46:   On T_STRIKE to state 63
+  47:   On T_STRONG to state 64
+  48:   On T_SUB to state 65
+  49:   On T_TEMPLATE to state 66
+  50:   On T_TIME to state 67
+  51:   On T_TT to state 68
+  52:   On T_U to state 69
+  53:   On T_WBR to state 70
+  54:   On T_OPTION to state 71
+  55:   On T_FORM to state 72
+  56:   On T_INPUT to state 73
+  57:   On T_TEXTAREA to state 74
+  58:   On T_BUTTON to state 75
+  59:   On T_SELECT to state 76
+  60:   On T_OPTGROUP to state 77
+  61:   On T_OPTON to state 78
+  62:   On T_LABEL to state 79
+  63:   On T_FIELDSET to state 80
+  64:   On T_LEGEND to state 81
+  65:   On T_DATALIST to state 82
+  66:   On T_OUTPUT to state 83
+  67:   On T_FRAME to state 84
+  68:   On T_FRAMESET to state 85
+  69:   On T_NOFRAMES to state 86
+  70:   On T_IFRAME to state 87
+  71:   On T_IMG to state 88
+  72:   On T_MAP to state 89
+  73:   On T_AREA to state 90
+  74:   On T_CANVAS to state 91
+  75:   On T_FIGCAPTION to state 92
+  76:   On T_FIGURE to state 93
+  77:   On T_PICTURE to state 94
+  78:   On T_SVG to state 95
+  79:   On T_AUDIO to state 96
+  80:   On T_SOURCE to state 97
+  81:   On T_TRACK to state 98
+  82:   On T_VAREO to state 99
+  83:   On T_LINK to state 100
+  84:   On T_NAV to state 101
+  85:   On T_UL to state 102
+  86:   On T_OL to state 103
+  87:   On T_LI to state 104
+  88:   On T_DIR to state 105
+  89:   On T_DL to state 106
+  90:   On T_DT to state 107
+  91:   On T_DD to state 108
+  92:   On T_CAPTION to state 109
+  93:   On T_TH to state 110
+  94:   On T_TR to state 111
+  95:   On T_TD to state 112
+  96:   On T_THEAD to state 113
+  97:   On T_TBODY to state 114
+  98:   On T_TFOOT to state 115
+  99:   On T_COL to state 116
+  100:   On T_COLGROUP to state 117
+  101:   On T_STYLE to state 118
+  102:   On T_HEADER to state 119
+  103:   On T_FOOTER to state 120
+  104:   On T_MAIN to state 121
+  105:   On T_SECTION to state 122
+  106:   On T_ARTICLE to state 123
+  107:   On T_ASIDE to state 124
+  108:   On T_DETAILS to state 125
+  109:   On T_DIALOG to state 126
+  110:   On T_SUMMARY to state 127
+  111:   On T_DATA to state 128
+  112:   On T_META to state 129
+  113:   On T_BASE to state 130
+  114:   On T_BASEFONT to state 131
+  115:   On T_SCRIPT to state 132
+  116:   On T_NOSCRIPT to state 133
+  117:   On T_APPLET to state 134
+  118:   On T_EMBED to state 135
+  119:   On T_OBJECT to state 136
+  120:   On T_PARAM to state 137
+
+
+State 12:
+18: indents -> T_INDENT  . indents 
+  0:   On indents to state 140
+  1:   On T_INDENT to state 12
+  Reduce by 17: indents ->  . 
+
+
+State 13:
+4: statements -> statements T_GLOBCONT  . tag T_NLINE statements 
+  0:   On tag to state 141
+  1:   On T_A to state 18
+  2:   On T_DIV to state 19
+  3:   On T_SPAN to state 20
+  4:   On T_P to state 21
+  5:   On T_HTML to state 22
+  6:   On T_HEAD to state 23
+  7:   On T_TITLE to state 24
+  8:   On T_BODY to state 25
+  9:   On T_H1 to state 26
+  10:   On T_H2 to state 27
+  11:   On T_H3 to state 28
+  12:   On T_H4 to state 29
+  13:   On T_H5 to state 30
+  14:   On T_H6 to state 31
+  15:   On T_BR to state 32
+  16:   On T_HR to state 33
+  17:   On T_ACRONYM to state 34
+  18:   On T_ABBR to state 35
+  19:   On T_ADDRESS to state 36
+  20:   On T_B to state 37
+  21:   On T_BDI to state 38
+  22:   On T_BDO to state 39
+  23:   On T_BIG to state 40
+  24:   On T_BLOCKQUOTE to state 41
+  25:   On T_CENTER to state 42
+  26:   On T_CITE to state 43
+  27:   On T_CODE to state 44
+  28:   On T_DEL to state 45
+  29:   On T_DFN to state 46
+  30:   On T_EM to state 47
+  31:   On T_FONT to state 48
+  32:   On T_I to state 49
+  33:   On T_INS to state 50
+  34:   On T_KBD to state 51
+  35:   On T_MARK to state 52
+  36:   On T_METER to state 53
+  37:   On T_PRE to state 54
+  38:   On T_PROGRESS to state 55
+  39:   On T_Q to state 56
+  40:   On T_RP to state 57
+  41:   On T_RT to state 58
+  42:   On T_RUBY to state 59
+  43:   On T_S to state 60
+  44:   On T_SAMP to state 61
+  45:   On T_SMALL to state 62
+  46:   On T_STRIKE to state 63
+  47:   On T_STRONG to state 64
+  48:   On T_SUB to state 65
+  49:   On T_TEMPLATE to state 66
+  50:   On T_TIME to state 67
+  51:   On T_TT to state 68
+  52:   On T_U to state 69
+  53:   On T_WBR to state 70
+  54:   On T_OPTION to state 71
+  55:   On T_FORM to state 72
+  56:   On T_INPUT to state 73
+  57:   On T_TEXTAREA to state 74
+  58:   On T_BUTTON to state 75
+  59:   On T_SELECT to state 76
+  60:   On T_OPTGROUP to state 77
+  61:   On T_OPTON to state 78
+  62:   On T_LABEL to state 79
+  63:   On T_FIELDSET to state 80
+  64:   On T_LEGEND to state 81
+  65:   On T_DATALIST to state 82
+  66:   On T_OUTPUT to state 83
+  67:   On T_FRAME to state 84
+  68:   On T_FRAMESET to state 85
+  69:   On T_NOFRAMES to state 86
+  70:   On T_IFRAME to state 87
+  71:   On T_IMG to state 88
+  72:   On T_MAP to state 89
+  73:   On T_AREA to state 90
+  74:   On T_CANVAS to state 91
+  75:   On T_FIGCAPTION to state 92
+  76:   On T_FIGURE to state 93
+  77:   On T_PICTURE to state 94
+  78:   On T_SVG to state 95
+  79:   On T_AUDIO to state 96
+  80:   On T_SOURCE to state 97
+  81:   On T_TRACK to state 98
+  82:   On T_VAREO to state 99
+  83:   On T_LINK to state 100
+  84:   On T_NAV to state 101
+  85:   On T_UL to state 102
+  86:   On T_OL to state 103
+  87:   On T_LI to state 104
+  88:   On T_DIR to state 105
+  89:   On T_DL to state 106
+  90:   On T_DT to state 107
+  91:   On T_DD to state 108
+  92:   On T_CAPTION to state 109
+  93:   On T_TH to state 110
+  94:   On T_TR to state 111
+  95:   On T_TD to state 112
+  96:   On T_THEAD to state 113
+  97:   On T_TBODY to state 114
+  98:   On T_TFOOT to state 115
+  99:   On T_COL to state 116
+  100:   On T_COLGROUP to state 117
+  101:   On T_STYLE to state 118
+  102:   On T_HEADER to state 119
+  103:   On T_FOOTER to state 120
+  104:   On T_MAIN to state 121
+  105:   On T_SECTION to state 122
+  106:   On T_ARTICLE to state 123
+  107:   On T_ASIDE to state 124
+  108:   On T_DETAILS to state 125
+  109:   On T_DIALOG to state 126
+  110:   On T_SUMMARY to state 127
+  111:   On T_DATA to state 128
+  112:   On T_META to state 129
+  113:   On T_BASE to state 130
+  114:   On T_BASEFONT to state 131
+  115:   On T_SCRIPT to state 132
+  116:   On T_NOSCRIPT to state 133
+  117:   On T_APPLET to state 134
+  118:   On T_EMBED to state 135
+  119:   On T_OBJECT to state 136
+  120:   On T_PARAM to state 137
+
+
+State 14:
+3: statements -> statement statements  . 
+4: statements -> statements  . T_GLOBCONT tag T_NLINE statements 
+  0:   On T_GLOBCONT to state 13
+  Reduce by 3: statements -> statement statements  . 
+Solved SR CONFLICT on T_GLOBCONT:
+	shift to state 13, removed T_GLOBCONT from LA-set of rule 3)
+
+
+State 15:
+5: statement -> block T_NLINE  . 
+  Reduce by 5: statement -> block T_NLINE  . 
+
+
+State 16:
+6: statement -> assignment T_NLINE  . 
+  Reduce by 6: statement -> assignment T_NLINE  . 
+
+
+State 17:
+12: block -> indents tag  . attributs T_NLINE textlines block 
+13: block -> indents tag  . attributs T_NLINE block 
+14: block -> indents tag  . attributs T_NLINE textlines 
+  0:   On attributs to state 142
+  1:   On T_COLON to state 143
+
+
+State 18:
+22: tag -> T_A  . 
+  Reduce by 22: tag -> T_A  . 
+
+
+State 19:
+23: tag -> T_DIV  . 
+123: tag -> T_DIV  . 
+  Reduce by 23: tag -> T_DIV  . 
+  Reduce by 123: tag -> T_DIV  . 
+Solved RR CONFLICT for rules 23 and 123:
+	removed { T_COLON T_NLINE } from the LA set of (removed) rule 123
+
+
+State 20:
+24: tag -> T_SPAN  . 
+124: tag -> T_SPAN  . 
+  Reduce by 24: tag -> T_SPAN  . 
+  Reduce by 124: tag -> T_SPAN  . 
+Solved RR CONFLICT for rules 24 and 124:
+	removed { T_COLON T_NLINE } from the LA set of (removed) rule 124
+
+
+State 21:
+25: tag -> T_P  . 
+  Reduce by 25: tag -> T_P  . 
+
+
+State 22:
+26: tag -> T_HTML  . 
+  Reduce by 26: tag -> T_HTML  . 
+
+
+State 23:
+27: tag -> T_HEAD  . 
+  Reduce by 27: tag -> T_HEAD  . 
+
+
+State 24:
+28: tag -> T_TITLE  . 
+  Reduce by 28: tag -> T_TITLE  . 
+
+
+State 25:
+29: tag -> T_BODY  . 
+  Reduce by 29: tag -> T_BODY  . 
+
+
+State 26:
+30: tag -> T_H1  . 
+  Reduce by 30: tag -> T_H1  . 
+
+
+State 27:
+31: tag -> T_H2  . 
+  Reduce by 31: tag -> T_H2  . 
+
+
+State 28:
+32: tag -> T_H3  . 
+  Reduce by 32: tag -> T_H3  . 
+
+
+State 29:
+33: tag -> T_H4  . 
+  Reduce by 33: tag -> T_H4  . 
+
+
+State 30:
+34: tag -> T_H5  . 
+  Reduce by 34: tag -> T_H5  . 
+
+
+State 31:
+35: tag -> T_H6  . 
+  Reduce by 35: tag -> T_H6  . 
+
+
+State 32:
+36: tag -> T_BR  . 
+  Reduce by 36: tag -> T_BR  . 
+
+
+State 33:
+37: tag -> T_HR  . 
+  Reduce by 37: tag -> T_HR  . 
+
+
+State 34:
+38: tag -> T_ACRONYM  . 
+  Reduce by 38: tag -> T_ACRONYM  . 
+
+
+State 35:
+39: tag -> T_ABBR  . 
+  Reduce by 39: tag -> T_ABBR  . 
+
+
+State 36:
+40: tag -> T_ADDRESS  . 
+  Reduce by 40: tag -> T_ADDRESS  . 
+
+
+State 37:
+41: tag -> T_B  . 
+  Reduce by 41: tag -> T_B  . 
+
+
+State 38:
+42: tag -> T_BDI  . 
+  Reduce by 42: tag -> T_BDI  . 
+
+
+State 39:
+43: tag -> T_BDO  . 
+  Reduce by 43: tag -> T_BDO  . 
+
+
+State 40:
+44: tag -> T_BIG  . 
+  Reduce by 44: tag -> T_BIG  . 
+
+
+State 41:
+45: tag -> T_BLOCKQUOTE  . 
+  Reduce by 45: tag -> T_BLOCKQUOTE  . 
+
+
+State 42:
+46: tag -> T_CENTER  . 
+  Reduce by 46: tag -> T_CENTER  . 
+
+
+State 43:
+47: tag -> T_CITE  . 
+  Reduce by 47: tag -> T_CITE  . 
+
+
+State 44:
+48: tag -> T_CODE  . 
+  Reduce by 48: tag -> T_CODE  . 
+
+
+State 45:
+49: tag -> T_DEL  . 
+  Reduce by 49: tag -> T_DEL  . 
+
+
+State 46:
+50: tag -> T_DFN  . 
+  Reduce by 50: tag -> T_DFN  . 
+
+
+State 47:
+51: tag -> T_EM  . 
+  Reduce by 51: tag -> T_EM  . 
+
+
+State 48:
+52: tag -> T_FONT  . 
+  Reduce by 52: tag -> T_FONT  . 
+
+
+State 49:
+53: tag -> T_I  . 
+  Reduce by 53: tag -> T_I  . 
+
+
+State 50:
+54: tag -> T_INS  . 
+  Reduce by 54: tag -> T_INS  . 
+
+
+State 51:
+55: tag -> T_KBD  . 
+  Reduce by 55: tag -> T_KBD  . 
+
+
+State 52:
+56: tag -> T_MARK  . 
+  Reduce by 56: tag -> T_MARK  . 
+
+
+State 53:
+57: tag -> T_METER  . 
+  Reduce by 57: tag -> T_METER  . 
+
+
+State 54:
+58: tag -> T_PRE  . 
+  Reduce by 58: tag -> T_PRE  . 
+
+
+State 55:
+59: tag -> T_PROGRESS  . 
+  Reduce by 59: tag -> T_PROGRESS  . 
+
+
+State 56:
+60: tag -> T_Q  . 
+  Reduce by 60: tag -> T_Q  . 
+
+
+State 57:
+61: tag -> T_RP  . 
+  Reduce by 61: tag -> T_RP  . 
+
+
+State 58:
+62: tag -> T_RT  . 
+  Reduce by 62: tag -> T_RT  . 
+
+
+State 59:
+63: tag -> T_RUBY  . 
+  Reduce by 63: tag -> T_RUBY  . 
+
+
+State 60:
+64: tag -> T_S  . 
+  Reduce by 64: tag -> T_S  . 
+
+
+State 61:
+65: tag -> T_SAMP  . 
+  Reduce by 65: tag -> T_SAMP  . 
+
+
+State 62:
+66: tag -> T_SMALL  . 
+  Reduce by 66: tag -> T_SMALL  . 
+
+
+State 63:
+67: tag -> T_STRIKE  . 
+  Reduce by 67: tag -> T_STRIKE  . 
+
+
+State 64:
+68: tag -> T_STRONG  . 
+  Reduce by 68: tag -> T_STRONG  . 
+
+
+State 65:
+69: tag -> T_SUB  . 
+  Reduce by 69: tag -> T_SUB  . 
+
+
+State 66:
+70: tag -> T_TEMPLATE  . 
+  Reduce by 70: tag -> T_TEMPLATE  . 
+
+
+State 67:
+71: tag -> T_TIME  . 
+  Reduce by 71: tag -> T_TIME  . 
+
+
+State 68:
+72: tag -> T_TT  . 
+  Reduce by 72: tag -> T_TT  . 
+
+
+State 69:
+73: tag -> T_U  . 
+  Reduce by 73: tag -> T_U  . 
+
+
+State 70:
+74: tag -> T_WBR  . 
+  Reduce by 74: tag -> T_WBR  . 
+
+
+State 71:
+75: tag -> T_OPTION  . 
+  Reduce by 75: tag -> T_OPTION  . 
+
+
+State 72:
+76: tag -> T_FORM  . 
+  Reduce by 76: tag -> T_FORM  . 
+
+
+State 73:
+77: tag -> T_INPUT  . 
+  Reduce by 77: tag -> T_INPUT  . 
+
+
+State 74:
+78: tag -> T_TEXTAREA  . 
+  Reduce by 78: tag -> T_TEXTAREA  . 
+
+
+State 75:
+79: tag -> T_BUTTON  . 
+  Reduce by 79: tag -> T_BUTTON  . 
+
+
+State 76:
+80: tag -> T_SELECT  . 
+  Reduce by 80: tag -> T_SELECT  . 
+
+
+State 77:
+81: tag -> T_OPTGROUP  . 
+  Reduce by 81: tag -> T_OPTGROUP  . 
+
+
+State 78:
+82: tag -> T_OPTON  . 
+  Reduce by 82: tag -> T_OPTON  . 
+
+
+State 79:
+83: tag -> T_LABEL  . 
+  Reduce by 83: tag -> T_LABEL  . 
+
+
+State 80:
+84: tag -> T_FIELDSET  . 
+  Reduce by 84: tag -> T_FIELDSET  . 
+
+
+State 81:
+85: tag -> T_LEGEND  . 
+  Reduce by 85: tag -> T_LEGEND  . 
+
+
+State 82:
+86: tag -> T_DATALIST  . 
+  Reduce by 86: tag -> T_DATALIST  . 
+
+
+State 83:
+87: tag -> T_OUTPUT  . 
+  Reduce by 87: tag -> T_OUTPUT  . 
+
+
+State 84:
+88: tag -> T_FRAME  . 
+  Reduce by 88: tag -> T_FRAME  . 
+
+
+State 85:
+89: tag -> T_FRAMESET  . 
+  Reduce by 89: tag -> T_FRAMESET  . 
+
+
+State 86:
+90: tag -> T_NOFRAMES  . 
+  Reduce by 90: tag -> T_NOFRAMES  . 
+
+
+State 87:
+91: tag -> T_IFRAME  . 
+  Reduce by 91: tag -> T_IFRAME  . 
+
+
+State 88:
+92: tag -> T_IMG  . 
+  Reduce by 92: tag -> T_IMG  . 
+
+
+State 89:
+93: tag -> T_MAP  . 
+  Reduce by 93: tag -> T_MAP  . 
+
+
+State 90:
+94: tag -> T_AREA  . 
+  Reduce by 94: tag -> T_AREA  . 
+
+
+State 91:
+95: tag -> T_CANVAS  . 
+  Reduce by 95: tag -> T_CANVAS  . 
+
+
+State 92:
+96: tag -> T_FIGCAPTION  . 
+  Reduce by 96: tag -> T_FIGCAPTION  . 
+
+
+State 93:
+97: tag -> T_FIGURE  . 
+  Reduce by 97: tag -> T_FIGURE  . 
+
+
+State 94:
+98: tag -> T_PICTURE  . 
+  Reduce by 98: tag -> T_PICTURE  . 
+
+
+State 95:
+99: tag -> T_SVG  . 
+  Reduce by 99: tag -> T_SVG  . 
+
+
+State 96:
+100: tag -> T_AUDIO  . 
+  Reduce by 100: tag -> T_AUDIO  . 
+
+
+State 97:
+101: tag -> T_SOURCE  . 
+  Reduce by 101: tag -> T_SOURCE  . 
+
+
+State 98:
+102: tag -> T_TRACK  . 
+  Reduce by 102: tag -> T_TRACK  . 
+
+
+State 99:
+103: tag -> T_VAREO  . 
+  Reduce by 103: tag -> T_VAREO  . 
+
+
+State 100:
+104: tag -> T_LINK  . 
+  Reduce by 104: tag -> T_LINK  . 
+
+
+State 101:
+105: tag -> T_NAV  . 
+  Reduce by 105: tag -> T_NAV  . 
+
+
+State 102:
+106: tag -> T_UL  . 
+  Reduce by 106: tag -> T_UL  . 
+
+
+State 103:
+107: tag -> T_OL  . 
+  Reduce by 107: tag -> T_OL  . 
+
+
+State 104:
+108: tag -> T_LI  . 
+  Reduce by 108: tag -> T_LI  . 
+
+
+State 105:
+109: tag -> T_DIR  . 
+  Reduce by 109: tag -> T_DIR  . 
+
+
+State 106:
+110: tag -> T_DL  . 
+  Reduce by 110: tag -> T_DL  . 
+
+
+State 107:
+111: tag -> T_DT  . 
+  Reduce by 111: tag -> T_DT  . 
+
+
+State 108:
+112: tag -> T_DD  . 
+  Reduce by 112: tag -> T_DD  . 
+
+
+State 109:
+113: tag -> T_CAPTION  . 
+  Reduce by 113: tag -> T_CAPTION  . 
+
+
+State 110:
+114: tag -> T_TH  . 
+  Reduce by 114: tag -> T_TH  . 
+
+
+State 111:
+115: tag -> T_TR  . 
+  Reduce by 115: tag -> T_TR  . 
+
+
+State 112:
+116: tag -> T_TD  . 
+  Reduce by 116: tag -> T_TD  . 
+
+
+State 113:
+117: tag -> T_THEAD  . 
+  Reduce by 117: tag -> T_THEAD  . 
+
+
+State 114:
+118: tag -> T_TBODY  . 
+  Reduce by 118: tag -> T_TBODY  . 
+
+
+State 115:
+119: tag -> T_TFOOT  . 
+  Reduce by 119: tag -> T_TFOOT  . 
+
+
+State 116:
+120: tag -> T_COL  . 
+  Reduce by 120: tag -> T_COL  . 
+
+
+State 117:
+121: tag -> T_COLGROUP  . 
+  Reduce by 121: tag -> T_COLGROUP  . 
+
+
+State 118:
+122: tag -> T_STYLE  . 
+  Reduce by 122: tag -> T_STYLE  . 
+
+
+State 119:
+125: tag -> T_HEADER  . 
+  Reduce by 125: tag -> T_HEADER  . 
+
+
+State 120:
+126: tag -> T_FOOTER  . 
+  Reduce by 126: tag -> T_FOOTER  . 
+
+
+State 121:
+127: tag -> T_MAIN  . 
+  Reduce by 127: tag -> T_MAIN  . 
+
+
+State 122:
+128: tag -> T_SECTION  . 
+  Reduce by 128: tag -> T_SECTION  . 
+
+
+State 123:
+129: tag -> T_ARTICLE  . 
+  Reduce by 129: tag -> T_ARTICLE  . 
+
+
+State 124:
+130: tag -> T_ASIDE  . 
+  Reduce by 130: tag -> T_ASIDE  . 
+
+
+State 125:
+131: tag -> T_DETAILS  . 
+  Reduce by 131: tag -> T_DETAILS  . 
+
+
+State 126:
+132: tag -> T_DIALOG  . 
+  Reduce by 132: tag -> T_DIALOG  . 
+
+
+State 127:
+133: tag -> T_SUMMARY  . 
+  Reduce by 133: tag -> T_SUMMARY  . 
+
+
+State 128:
+134: tag -> T_DATA  . 
+  Reduce by 134: tag -> T_DATA  . 
+
+
+State 129:
+135: tag -> T_META  . 
+  Reduce by 135: tag -> T_META  . 
+
+
+State 130:
+136: tag -> T_BASE  . 
+  Reduce by 136: tag -> T_BASE  . 
+
+
+State 131:
+137: tag -> T_BASEFONT  . 
+  Reduce by 137: tag -> T_BASEFONT  . 
+
+
+State 132:
+138: tag -> T_SCRIPT  . 
+  Reduce by 138: tag -> T_SCRIPT  . 
+
+
+State 133:
+139: tag -> T_NOSCRIPT  . 
+  Reduce by 139: tag -> T_NOSCRIPT  . 
+
+
+State 134:
+140: tag -> T_APPLET  . 
+  Reduce by 140: tag -> T_APPLET  . 
+
+
+State 135:
+141: tag -> T_EMBED  . 
+  Reduce by 141: tag -> T_EMBED  . 
+
+
+State 136:
+142: tag -> T_OBJECT  . 
+  Reduce by 142: tag -> T_OBJECT  . 
+
+
+State 137:
+143: tag -> T_PARAM  . 
+  Reduce by 143: tag -> T_PARAM  . 
+
+
+State 138:
+10: assignment -> T_VARIABLE T_ASSIGN  . T_STR 
+  0:   On T_STR to state 144
+
+
+State 139:
+9: block_container -> T_BLKCONT tag  . attributs T_NLINE block T_NLINE 
+  0:   On attributs to state 145
+  1:   On T_COLON to state 143
+
+
+State 140:
+18: indents -> T_INDENT indents  . 
+  Reduce by 18: indents -> T_INDENT indents  . 
+
+
+State 141:
+4: statements -> statements T_GLOBCONT tag  . T_NLINE statements 
+  0:   On T_NLINE to state 146
+
+
+State 142:
+12: block -> indents tag attributs  . T_NLINE textlines block 
+13: block -> indents tag attributs  . T_NLINE block 
+14: block -> indents tag attributs  . T_NLINE textlines 
+  0:   On T_NLINE to state 147
+
+
+State 143:
+19: attributs -> T_COLON  . 
+20: attributs -> T_COLON  . T_STR 
+21: attributs -> T_COLON  . T_EXTRACT T_VARIABLE 
+  0:   On T_STR to state 148
+  1:   On T_EXTRACT to state 149
+  Reduce by 19: attributs -> T_COLON  . 
+
+
+State 144:
+10: assignment -> T_VARIABLE T_ASSIGN T_STR  . 
+  Reduce by 10: assignment -> T_VARIABLE T_ASSIGN T_STR  . 
+
+
+State 145:
+9: block_container -> T_BLKCONT tag attributs  . T_NLINE block T_NLINE 
+  0:   On T_NLINE to state 150
+
+
+State 146:
+4: statements -> statements T_GLOBCONT tag T_NLINE  . statements 
+  0:   On statements to state 151
+  1:   On statement to state 3
+  2:   On block to state 4
+  3:   On assignment to state 5
+  4:   On block_container to state 6
+  5:   On T_NLINE to state 7
+  6:   On T_DOT to state 8
+  7:   On indents to state 9
+  8:   On T_VARIABLE to state 10
+  9:   On T_BLKCONT to state 11
+  10:   On T_INDENT to state 12
+  Reduce by 17: indents ->  . 
+
+
+State 147:
+12: block -> indents tag attributs T_NLINE  . textlines block 
+13: block -> indents tag attributs T_NLINE  . block 
+14: block -> indents tag attributs T_NLINE  . textlines 
+  0:   On textlines to state 152
+  1:   On block to state 153
+  2:   On indents to state 154
+  3:   On T_DOT to state 8
+  4:   On T_INDENT to state 12
+  Reduce by 17: indents ->  . 
+
+
+State 148:
+20: attributs -> T_COLON T_STR  . 
+  Reduce by 20: attributs -> T_COLON T_STR  . 
+
+
+State 149:
+21: attributs -> T_COLON T_EXTRACT  . T_VARIABLE 
+  0:   On T_VARIABLE to state 155
+
+
+State 150:
+9: block_container -> T_BLKCONT tag attributs T_NLINE  . block T_NLINE 
+  0:   On block to state 156
+  1:   On T_DOT to state 8
+  2:   On indents to state 9
+  3:   On T_INDENT to state 12
+  Reduce by 17: indents ->  . 
+
+
+State 151:
+4: statements -> statements T_GLOBCONT tag T_NLINE statements  . 
+4: statements -> statements  . T_GLOBCONT tag T_NLINE statements 
+  0:   On T_GLOBCONT to state 13
+  Reduce by 4: statements -> statements T_GLOBCONT tag T_NLINE statements  . 
+Solved SR CONFLICT on T_GLOBCONT:
+	shift to state 13, removed T_GLOBCONT from LA-set of rule 4)
+
+
+State 152:
+12: block -> indents tag attributs T_NLINE textlines  . block 
+14: block -> indents tag attributs T_NLINE textlines  . 
+  0:   On block to state 157
+  1:   On T_DOT to state 8
+  2:   On indents to state 9
+  3:   On T_INDENT to state 12
+  Reduce by 14: block -> indents tag attributs T_NLINE textlines  . 
+  Reduce by 17: indents ->  . 
+
+
+State 153:
+13: block -> indents tag attributs T_NLINE block  . 
+  Reduce by 13: block -> indents tag attributs T_NLINE block  . 
+
+
+State 154:
+15: textlines -> indents  . T_STR T_NLINE 
+16: textlines -> indents  . T_EXTRACT T_VARIABLE T_NLINE 
+12: block -> indents  . tag attributs T_NLINE textlines block 
+13: block -> indents  . tag attributs T_NLINE block 
+14: block -> indents  . tag attributs T_NLINE textlines 
+  0:   On T_STR to state 158
+  1:   On T_EXTRACT to state 159
+  2:   On tag to state 17
+  3:   On T_A to state 18
+  4:   On T_DIV to state 19
+  5:   On T_SPAN to state 20
+  6:   On T_P to state 21
+  7:   On T_HTML to state 22
+  8:   On T_HEAD to state 23
+  9:   On T_TITLE to state 24
+  10:   On T_BODY to state 25
+  11:   On T_H1 to state 26
+  12:   On T_H2 to state 27
+  13:   On T_H3 to state 28
+  14:   On T_H4 to state 29
+  15:   On T_H5 to state 30
+  16:   On T_H6 to state 31
+  17:   On T_BR to state 32
+  18:   On T_HR to state 33
+  19:   On T_ACRONYM to state 34
+  20:   On T_ABBR to state 35
+  21:   On T_ADDRESS to state 36
+  22:   On T_B to state 37
+  23:   On T_BDI to state 38
+  24:   On T_BDO to state 39
+  25:   On T_BIG to state 40
+  26:   On T_BLOCKQUOTE to state 41
+  27:   On T_CENTER to state 42
+  28:   On T_CITE to state 43
+  29:   On T_CODE to state 44
+  30:   On T_DEL to state 45
+  31:   On T_DFN to state 46
+  32:   On T_EM to state 47
+  33:   On T_FONT to state 48
+  34:   On T_I to state 49
+  35:   On T_INS to state 50
+  36:   On T_KBD to state 51
+  37:   On T_MARK to state 52
+  38:   On T_METER to state 53
+  39:   On T_PRE to state 54
+  40:   On T_PROGRESS to state 55
+  41:   On T_Q to state 56
+  42:   On T_RP to state 57
+  43:   On T_RT to state 58
+  44:   On T_RUBY to state 59
+  45:   On T_S to state 60
+  46:   On T_SAMP to state 61
+  47:   On T_SMALL to state 62
+  48:   On T_STRIKE to state 63
+  49:   On T_STRONG to state 64
+  50:   On T_SUB to state 65
+  51:   On T_TEMPLATE to state 66
+  52:   On T_TIME to state 67
+  53:   On T_TT to state 68
+  54:   On T_U to state 69
+  55:   On T_WBR to state 70
+  56:   On T_OPTION to state 71
+  57:   On T_FORM to state 72
+  58:   On T_INPUT to state 73
+  59:   On T_TEXTAREA to state 74
+  60:   On T_BUTTON to state 75
+  61:   On T_SELECT to state 76
+  62:   On T_OPTGROUP to state 77
+  63:   On T_OPTON to state 78
+  64:   On T_LABEL to state 79
+  65:   On T_FIELDSET to state 80
+  66:   On T_LEGEND to state 81
+  67:   On T_DATALIST to state 82
+  68:   On T_OUTPUT to state 83
+  69:   On T_FRAME to state 84
+  70:   On T_FRAMESET to state 85
+  71:   On T_NOFRAMES to state 86
+  72:   On T_IFRAME to state 87
+  73:   On T_IMG to state 88
+  74:   On T_MAP to state 89
+  75:   On T_AREA to state 90
+  76:   On T_CANVAS to state 91
+  77:   On T_FIGCAPTION to state 92
+  78:   On T_FIGURE to state 93
+  79:   On T_PICTURE to state 94
+  80:   On T_SVG to state 95
+  81:   On T_AUDIO to state 96
+  82:   On T_SOURCE to state 97
+  83:   On T_TRACK to state 98
+  84:   On T_VAREO to state 99
+  85:   On T_LINK to state 100
+  86:   On T_NAV to state 101
+  87:   On T_UL to state 102
+  88:   On T_OL to state 103
+  89:   On T_LI to state 104
+  90:   On T_DIR to state 105
+  91:   On T_DL to state 106
+  92:   On T_DT to state 107
+  93:   On T_DD to state 108
+  94:   On T_CAPTION to state 109
+  95:   On T_TH to state 110
+  96:   On T_TR to state 111
+  97:   On T_TD to state 112
+  98:   On T_THEAD to state 113
+  99:   On T_TBODY to state 114
+  100:   On T_TFOOT to state 115
+  101:   On T_COL to state 116
+  102:   On T_COLGROUP to state 117
+  103:   On T_STYLE to state 118
+  104:   On T_HEADER to state 119
+  105:   On T_FOOTER to state 120
+  106:   On T_MAIN to state 121
+  107:   On T_SECTION to state 122
+  108:   On T_ARTICLE to state 123
+  109:   On T_ASIDE to state 124
+  110:   On T_DETAILS to state 125
+  111:   On T_DIALOG to state 126
+  112:   On T_SUMMARY to state 127
+  113:   On T_DATA to state 128
+  114:   On T_META to state 129
+  115:   On T_BASE to state 130
+  116:   On T_BASEFONT to state 131
+  117:   On T_SCRIPT to state 132
+  118:   On T_NOSCRIPT to state 133
+  119:   On T_APPLET to state 134
+  120:   On T_EMBED to state 135
+  121:   On T_OBJECT to state 136
+  122:   On T_PARAM to state 137
+
+
+State 155:
+21: attributs -> T_COLON T_EXTRACT T_VARIABLE  . 
+  Reduce by 21: attributs -> T_COLON T_EXTRACT T_VARIABLE  . 
+
+
+State 156:
+9: block_container -> T_BLKCONT tag attributs T_NLINE block  . T_NLINE 
+  0:   On T_NLINE to state 160
+
+
+State 157:
+12: block -> indents tag attributs T_NLINE textlines block  . 
+  Reduce by 12: block -> indents tag attributs T_NLINE textlines block  . 
+
+
+State 158:
+15: textlines -> indents T_STR  . T_NLINE 
+  0:   On T_NLINE to state 161
+
+
+State 159:
+16: textlines -> indents T_EXTRACT  . T_VARIABLE T_NLINE 
+  0:   On T_VARIABLE to state 162
+
+
+State 160:
+9: block_container -> T_BLKCONT tag attributs T_NLINE block T_NLINE  . 
+  Reduce by 9: block_container -> T_BLKCONT tag attributs T_NLINE block T_NLINE  . 
+
+
+State 161:
+15: textlines -> indents T_STR T_NLINE  . 
+  Reduce by 15: textlines -> indents T_STR T_NLINE  . 
+
+
+State 162:
+16: textlines -> indents T_EXTRACT T_VARIABLE  . T_NLINE 
+  0:   On T_NLINE to state 163
+
+
+State 163:
+16: textlines -> indents T_EXTRACT T_VARIABLE T_NLINE  . 
+  Reduce by 16: textlines -> indents T_EXTRACT T_VARIABLE T_NLINE  . 
+
+
+

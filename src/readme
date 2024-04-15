@@ -1,0 +1,14 @@
+
+using the terminal 
+
+
+.\wise 		filename -vis (on|off)
+.\wise 		-t  for terminal typing (type your wise program)
+.\wise 		-t -vis (on|off) turn on and off lexical output
+
+
+or 
+
+cd test
+sh test.sh 
+sh terminal.sh 
